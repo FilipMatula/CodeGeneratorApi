@@ -13,18 +13,18 @@ namespace CodeGenerator.Services
         {
             var writer = new BarcodeWriter
             {
-                Format = parameters.Code,
+                Format = parameters.Code.GetValueOrDefault(),
                 Options = new ZXing.Common.EncodingOptions
                 {
-                    Height = parameters.Height.GetValueOrDefault(parameters.Code.IsSquare() ? GeneratorConstants.SquareHeight : GeneratorConstants.RectHeight),
-                    Width = parameters.Width.GetValueOrDefault(parameters.Code.IsSquare() ? GeneratorConstants.SquareWidth : GeneratorConstants.RectWidth),
+                    Height = parameters.Height.GetValueOrDefault(parameters.Code.GetValueOrDefault().IsSquare() ? GeneratorConstants.SquareHeight : GeneratorConstants.RectHeight),
+                    Width = parameters.Width.GetValueOrDefault(parameters.Code.GetValueOrDefault().IsSquare() ? GeneratorConstants.SquareWidth : GeneratorConstants.RectWidth),
                     Margin = parameters.Margin,
                     PureBarcode = parameters.SkipStringContent
                 },
                 Renderer = new BitmapRenderer
                 {
-                    Foreground = ColorTranslator.FromHtml(parameters.ForegroundColor),
-                    Background = ColorTranslator.FromHtml(parameters.BackgroundColor),
+                    Foreground = ColorTranslator.FromHtml(parameters.ForegroundColor.ToHtmlText()),
+                    Background = ColorTranslator.FromHtml(parameters.BackgroundColor.ToHtmlText()),
                 }
             };
 
