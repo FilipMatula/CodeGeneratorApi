@@ -1,6 +1,7 @@
 ﻿using CodeGenerator.ResourceParameters;
 using CodeGenerator.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Versioning;
 using Tyrrrz.Extensions;
 using ZXing;
 
@@ -22,6 +23,7 @@ namespace CodeGenerator.Controllers
 
         [HttpGet(Name = "Get")]
         [MapToApiVersion("1.0")]
+        [SupportedOSPlatform("windows")]
         public IActionResult Get([FromQuery] GenerateResourceParameters request)
         {
             Byte[] byteArray;

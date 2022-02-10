@@ -2,6 +2,7 @@
 using CodeGenerator.Extensions;
 using CodeGenerator.ResourceParameters;
 using System.Drawing;
+using System.Runtime.Versioning;
 using ZXing;
 using ZXing.Rendering;
 
@@ -9,6 +10,7 @@ namespace CodeGenerator.Services
 {
     public class GeneratorService : IGeneratorService
     {
+        [SupportedOSPlatform("windows")]
         public Bitmap Generate(GenerateResourceParameters parameters)
         {
             var writer = new BarcodeWriter
