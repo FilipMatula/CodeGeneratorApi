@@ -4,7 +4,7 @@ using CodeGenerator.ResourceParameters;
 using System.Drawing;
 using System.Runtime.Versioning;
 using ZXing;
-using ZXing.Rendering;
+using ZXing.Windows.Compatibility;
 
 namespace CodeGenerator.Services
 {
@@ -13,7 +13,7 @@ namespace CodeGenerator.Services
         [SupportedOSPlatform("windows")]
         public Bitmap Generate(GenerateResourceParameters parameters)
         {
-            var writer = new BarcodeWriter
+            var writer = new BarcodeWriter<Bitmap>
             {
                 Format = parameters.Code.GetValueOrDefault(),
                 Options = new ZXing.Common.EncodingOptions
