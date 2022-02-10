@@ -1,5 +1,7 @@
 using CodeGenerator.Services;
+using Microsoft.OpenApi.Models;
 using Serilog;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +18,19 @@ builder.Host.UseSerilog((ctx, lc) => lc
 builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter())); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Code Generation API",
+        Description = "API allows to create various kind of code (barcodes, qr codes, data martix codes), and returns them as image.",
+    });
+
+    // using System.Reflection;
+    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+});
 
 // Add services
 builder.Services.AddScoped<IGeneratorService, GeneratorService>();

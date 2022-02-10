@@ -16,7 +16,8 @@
           "Swashbuckle.AspNetCore": "6.2.3",
           "System.Drawing.Common": "6.0.0",
           "Tyrrrz.Extensions": "1.6.5",
-          "ZXing.Net": "0.16.6"
+          "ZXing.Net": "0.16.8",
+          "ZXing.Net.Bindings.Windows.Compatibility": "0.16.10"
         },
         "runtime": {
           "CodeGenerator.dll": {}
@@ -718,11 +719,23 @@
           }
         }
       },
-      "ZXing.Net/0.16.6": {
+      "ZXing.Net/0.16.8": {
         "runtime": {
-          "lib/netcoreapp3.1/zxing.dll": {
-            "assemblyVersion": "0.16.6.0",
-            "fileVersion": "0.16.6.0"
+          "lib/net6.0/zxing.dll": {
+            "assemblyVersion": "0.16.8.0",
+            "fileVersion": "0.16.8.0"
+          }
+        }
+      },
+      "ZXing.Net.Bindings.Windows.Compatibility/0.16.10": {
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0",
+          "ZXing.Net": "0.16.8"
+        },
+        "runtime": {
+          "lib/net6.0/ZXing.Windows.Compatibility.dll": {
+            "assemblyVersion": "0.16.10.0",
+            "fileVersion": "0.16.10.0"
           }
         }
       }
@@ -1252,12 +1265,19 @@
       "path": "tyrrrz.extensions/1.6.5",
       "hashPath": "tyrrrz.extensions.1.6.5.nupkg.sha512"
     },
-    "ZXing.Net/0.16.6": {
+    "ZXing.Net/0.16.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0+6EcJ7Ve1BocwqvqpAmgMa7xF3wxqROcM3KvAE6WGNIqXLA5YEziLjRX+kKYVrcttlFRz1IaoRSzt/o6Ttviw==",
-      "path": "zxing.net/0.16.6",
-      "hashPath": "zxing.net.0.16.6.nupkg.sha512"
+      "sha512": "sha512-Cbbe+x7I7E+VJ0VxU1fPc7AktIw/9xea/ZY/fh38sXqTQ75LJp9ooGUjpzFqfpPfIKozAoXgJ4yvY4GzKpPBzQ==",
+      "path": "zxing.net/0.16.8",
+      "hashPath": "zxing.net.0.16.8.nupkg.sha512"
+    },
+    "ZXing.Net.Bindings.Windows.Compatibility/0.16.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-euWnxHf1jJ+jYyOjX/TAv9uVx4LKJPaUbuUG3O1F3Vkyp0LaXmutgKaJqHITvomyFp+cGt4N3CdC1Ftd5fQkmw==",
+      "path": "zxing.net.bindings.windows.compatibility/0.16.10",
+      "hashPath": "zxing.net.bindings.windows.compatibility.0.16.10.nupkg.sha512"
     }
   }
 }
