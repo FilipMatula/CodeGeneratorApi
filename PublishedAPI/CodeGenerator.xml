@@ -5,24 +5,53 @@
     </assembly>
     <members>
         <member name="M:CodeGenerator.Controllers.GenerateController.Get(CodeGenerator.ResourceParameters.GenerateResourceParameters)">
-             <summary>
-             Generate and return requested code as PNG image.
-             </summary>
-             <returns>Generated code as PNG image.</returns>
-             <remarks>
-             Sample request:
-            
-                 POST /Todo
-                 {
-                    "id": 1,
-                    "name": "Item #1",
-                    "isComplete": true
-                 }
-            
-             </remarks>
-             <response code="200">Returns code as png</response>
-             <response code="400">If parameters validation failed or something went wrong during generation.</response>
-             <response code="500">Internal server error.</response>
+            <summary>
+            Generate and return requested code as PNG image.
+            </summary>
+            <returns>Generated code as PNG image.</returns>
+            <response code="200">Returns code as png</response>
+            <response code="400">If parameters validation failed or something went wrong during generation.</response>
+            <response code="500">Internal server error.</response>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.Code">
+            <summary>
+            Barcode type (eg. CODE_128, QR_CODE)
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.Content">
+            <summary>
+            Text from which code will be generated
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.Width">
+            <summary>
+            Width of code (Default: 300px)
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.Height">
+            <summary>
+            Height of code (Default: 300px for square, 100px for rect)
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.Margin">
+            <summary>
+            Margin from left and right side of code (Default: 2px)
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.SkipStringContent">
+            <summary>
+            Set to true for do not generate string below barcodes
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.ForegroundColor">
+            <summary>
+            Foreground color in hex format (Acceptable: ffffff or %23ffffff)
+            </summary>
+        </member>
+        <member name="P:CodeGenerator.ResourceParameters.GenerateResourceParameters.BackgroundColor">
+            <summary>
+            Background color in hex format (Acceptable: ffffff or %23ffffff)
+            </summary>
         </member>
     </members>
 </doc>
