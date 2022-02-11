@@ -25,17 +25,6 @@ namespace CodeGenerator.Controllers
         /// Generate and return requested code as PNG image.
         /// </summary>
         /// <returns>Generated code as PNG image.</returns>
-        /// <remarks>
-        /// Sample request:
-        ///
-        ///     POST /Todo
-        ///     {
-        ///        "id": 1,
-        ///        "name": "Item #1",
-        ///        "isComplete": true
-        ///     }
-        ///
-        /// </remarks>
         /// <response code="200">Returns code as png</response>
         /// <response code="400">If parameters validation failed or something went wrong during generation.</response>
         /// <response code="500">Internal server error.</response>
